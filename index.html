@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Current Timestamp</title>
+	<style>
+		body {
+			min-height: 100vh;
+			margin: 0;
+			display: grid;
+			place-items: center;
+			font-family: system-ui, sans-serif;
+			background: #f1f5f9;
+			color: #0f172a;
+		}
+		main {
+			padding: 2rem 3rem;
+			text-align: center;
+			background: #fff;
+			border-radius: 1rem;
+			box-shadow: 0 10px 30px rgb(15 23 42 / 10%);
+		}
+		h1 { margin-top: 0; }
+		#timestamp { font-size: 1.4rem; color: #2563eb; }
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Current Timestamp</h1>
+		<p id="timestamp" aria-live="polite"></p>
+	</main>
+	<script>
+		const timestamp = document.getElementById('timestamp');
+		const updateTimestamp = () => {
+			timestamp.textContent = new Date().toLocaleString();
+		};
+		updateTimestamp();
+		setInterval(updateTimestamp, 1000);
+	</script>
+</body>
+</html>
